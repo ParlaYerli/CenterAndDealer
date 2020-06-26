@@ -46,6 +46,12 @@ namespace WebUI.Controllers
 
             return RedirectToAction("ListCallCenterUser", "CallCenter");
         }
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+
+            return RedirectToAction("Login", "CallCenter");
+        }
         public IActionResult ListCallCenterUser()
         {
             var list = _authService.GetAllCallCenterUser();
