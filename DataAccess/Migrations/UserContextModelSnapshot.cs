@@ -71,7 +71,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2020, 6, 25, 19, 40, 58, 606, DateTimeKind.Local).AddTicks(8033),
+                            CreatedDate = new DateTime(2020, 6, 26, 11, 55, 31, 666, DateTimeKind.Local).AddTicks(4176),
                             Name = "Login"
                         });
                 });
@@ -101,14 +101,14 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedBy = 2,
-                            CreatedDate = new DateTime(2020, 6, 25, 19, 40, 58, 600, DateTimeKind.Local).AddTicks(5911),
+                            CreatedDate = new DateTime(2020, 6, 26, 11, 55, 31, 652, DateTimeKind.Local).AddTicks(6245),
                             Name = "CallCenter"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = 2,
-                            CreatedDate = new DateTime(2020, 6, 25, 19, 40, 58, 604, DateTimeKind.Local).AddTicks(7092),
+                            CreatedDate = new DateTime(2020, 6, 26, 11, 55, 31, 660, DateTimeKind.Local).AddTicks(3184),
                             Name = "Dealer"
                         });
                 });
@@ -173,7 +173,7 @@ namespace DataAccess.Migrations
                             Address = "Test mah. Test sokak.",
                             City = "İstanbul",
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2020, 6, 25, 19, 40, 58, 606, DateTimeKind.Local).AddTicks(3499),
+                            CreatedDate = new DateTime(2020, 6, 26, 11, 55, 31, 664, DateTimeKind.Local).AddTicks(9527),
                             DealerId = 123123,
                             DealerName = "Dealer1",
                             FullName = "Test",
@@ -182,19 +182,19 @@ namespace DataAccess.Migrations
                             Phone = "5552223355",
                             RoleId = 1,
                             UpdatedBy = 1,
-                            UpdatedDate = new DateTime(2020, 6, 25, 19, 40, 58, 606, DateTimeKind.Local).AddTicks(3050)
+                            UpdatedDate = new DateTime(2020, 6, 26, 11, 55, 31, 664, DateTimeKind.Local).AddTicks(7804)
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2020, 6, 25, 19, 40, 58, 606, DateTimeKind.Local).AddTicks(6323),
+                            CreatedDate = new DateTime(2020, 6, 26, 11, 55, 31, 665, DateTimeKind.Local).AddTicks(8788),
                             FullName = "Dealer2",
                             IsActive = true,
                             Password = "023a2d11e01237fb6eab5ca926facd39ee44b1683e84295cccef79b7df905195",
                             RoleId = 2,
                             UpdatedBy = 1,
-                            UpdatedDate = new DateTime(2020, 6, 25, 19, 40, 58, 606, DateTimeKind.Local).AddTicks(6308)
+                            UpdatedDate = new DateTime(2020, 6, 26, 11, 55, 31, 665, DateTimeKind.Local).AddTicks(8747)
                         });
                 });
 #pragma warning restore 612, 618

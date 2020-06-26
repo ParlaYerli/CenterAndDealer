@@ -40,14 +40,14 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public TEntity Login(Expression<Func<TEntity, bool>> filter)
-        {
-            using (var context = new TContext())
-            {
-                return context.Set<TEntity>().FirstOrDefault(filter);
+        //public TEntity Login(Expression<Func<TEntity, bool>> filter)
+        //{
+        //    using (var context = new TContext())
+        //    {
+        //        return context.Set<TEntity>().FirstOrDefault(filter);
 
-            }
-        }
+        //    }
+        //}
         public void UpdateUser(TEntity entity)
         {
             using (var context = new TContext())

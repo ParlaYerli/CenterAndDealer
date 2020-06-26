@@ -38,13 +38,13 @@ namespace Business.Concrete
 
         public User LoginCallCenter(int userId, string password)
         {
-            return _userDal.Login(x => x.IsActive && (x.RoleId == 1) && x.Id == userId && x.Password == PasswordHasher(password));
-
+            var userToCheck = _userDal.GetUser(x => x.Id == userId &&  x.Password == PasswordHasher(password) && (x.RoleId == 1)) ;
+            return userToCheck;
         }
 
         public User LoginDealer(int dealerId, string password)
         {
-            return _userDal.Login(x => x.IsActive && x.DealerId == dealerId && x.Password == PasswordHasher(password) && (x.RoleId == 2));
+            return _userDal.GetUser(x => x.IsActive && x.DealerId == dealerId && x.Password == PasswordHasher(password) && (x.RoleId == 2));
         }
 
         public void UpdateUser(User user)
@@ -60,7 +60,7 @@ namespace Business.Concrete
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        string serverKey = "parla";
+        string serverKey = "demiroren";
         public string PasswordHasher(string rawData)
         {
             // Create a SHA256   

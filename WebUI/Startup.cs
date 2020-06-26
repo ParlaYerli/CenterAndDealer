@@ -7,8 +7,10 @@ using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using DataAccess.Concrete.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,8 +31,16 @@ namespace WebUI
         {
             services.AddControllersWithViews();
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(options =>
+               {
+                   options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                   options.AccessDeniedPath = "/Home/AuthFailed";
+                   options.LoginPath = "/bayi";
+               });
             services.AddScoped<IUserDal, UserDal>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
             services.AddDbContext<UserContext>();
@@ -50,14 +60,13 @@ namespace WebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=CallCenter}/{action=ListCallCenterUser}/{id?}");
+                    pattern: "{controller=CallCenter}/{action=Login}/{id?}");
             });
         }
     }
