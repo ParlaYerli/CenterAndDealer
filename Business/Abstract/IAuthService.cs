@@ -12,6 +12,7 @@ namespace Business.Abstract
         User GetUserByDealerId(int dealerId);
         User GetUserById(int userId);
         List<User> GetAllCallCenterUser();
+        List<User> GetAllDealerUser();
         void CreateCallCenter(User user);
         void UpdateUser(User user);
         string PasswordHasher(string password);

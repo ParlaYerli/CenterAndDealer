@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Microsoft.AspNetCore.Mvc;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
@@ -19,6 +20,23 @@ namespace WebUI.Controllers
         {
             return View();
         }
-
+        public IActionResult ListCallCenterUser()
+        {
+            var list = _authService.GetAllDealerUser();
+            List<DealerUserViewModel> modelList = new List<DealerUserViewModel>();
+            foreach (var item in list)
+            {
+                DealerUserViewModel model = new DealerUserViewModel()
+                {
+                    Id = item.Id,
+                    CreatedDate = item.CreatedDate,
+                    FullName = item.FullName,
+                    IsActive = item.IsActive,
+                    DealerId = item.DealerId
+                };
+                modelList.Add(model);
+            }
+            return View(modelList);
+        }
     }
 }

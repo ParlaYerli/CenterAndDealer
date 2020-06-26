@@ -25,7 +25,10 @@ namespace Business.Concrete
         {
             return _userDal.GetAll(x => x.RoleId == 1).ToList();
         }
-
+        public List<User> GetAllDealerUser()
+        {
+            return _userDal.GetAll(x => x.RoleId == 2).ToList();
+        }
         public User GetUserByDealerId(int dealerId)
         {
             return _userDal.GetUser(x => x.DealerId == dealerId);
