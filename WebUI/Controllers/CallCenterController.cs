@@ -19,7 +19,7 @@ namespace WebUI.Controllers
         private ILoggingService _loggingService;
         private readonly ILogger<CallCenterController> _logger;
 
-        public CallCenterController(IAuthService _authService, ILoggingService _loggingService, ILogger<CallCenterController> _logger)
+        public CallCenterController(IAuthService _authService, ILoggingService _loggingService, ILogger<CallCenterController> _logger )
         {
             this._authService = _authService;
             this._loggingService = _loggingService;
