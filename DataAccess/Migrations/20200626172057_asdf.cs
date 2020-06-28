@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class asdf : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -83,15 +83,15 @@ namespace DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "LogTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Name" },
-                values: new object[] { 1, 1, new DateTime(2020, 6, 26, 11, 55, 31, 666, DateTimeKind.Local).AddTicks(4176), "Login" });
+                values: new object[] { 1, 1, new DateTime(2020, 6, 26, 20, 20, 56, 269, DateTimeKind.Local).AddTicks(4277), "Login" });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, 2, new DateTime(2020, 6, 26, 11, 55, 31, 652, DateTimeKind.Local).AddTicks(6245), "CallCenter" },
-                    { 2, 2, new DateTime(2020, 6, 26, 11, 55, 31, 660, DateTimeKind.Local).AddTicks(3184), "Dealer" }
+                    { 1, 2, new DateTime(2020, 6, 26, 20, 20, 56, 259, DateTimeKind.Local).AddTicks(3124), "CallCenter" },
+                    { 2, 2, new DateTime(2020, 6, 26, 20, 20, 56, 264, DateTimeKind.Local).AddTicks(9465), "Dealer" }
                 });
 
             migrationBuilder.InsertData(
@@ -99,8 +99,8 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "Address", "City", "CreatedBy", "CreatedDate", "DealerId", "DealerName", "Email", "FullName", "IsActive", "Password", "Phone", "RoleId", "UpdatedBy", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, "Test mah. Test sokak.", "İstanbul", 1, new DateTime(2020, 6, 26, 11, 55, 31, 664, DateTimeKind.Local).AddTicks(9527), 123123, "Dealer1", null, "Test", true, "023a2d11e01237fb6eab5ca926facd39ee44b1683e84295cccef79b7df905195", "5552223355", 1, 1, new DateTime(2020, 6, 26, 11, 55, 31, 664, DateTimeKind.Local).AddTicks(7804) },
-                    { 2, null, null, 1, new DateTime(2020, 6, 26, 11, 55, 31, 665, DateTimeKind.Local).AddTicks(8788), null, null, null, "Dealer2", true, "023a2d11e01237fb6eab5ca926facd39ee44b1683e84295cccef79b7df905195", null, 2, 1, new DateTime(2020, 6, 26, 11, 55, 31, 665, DateTimeKind.Local).AddTicks(8747) }
+                    { 1, "Test mah. Test sokak.", "İstanbul", 1, new DateTime(2020, 6, 26, 20, 20, 56, 268, DateTimeKind.Local).AddTicks(3927), 123123, "Dealer1", null, "TestDealer", true, "023a2d11e01237fb6eab5ca926facd39ee44b1683e84295cccef79b7df905195", "5552223355", 1, 1, new DateTime(2020, 6, 26, 20, 20, 56, 268, DateTimeKind.Local).AddTicks(2906) },
+                    { 2, "Test mah. Test sokak.", "İstanbul", 1, new DateTime(2020, 6, 26, 20, 20, 56, 269, DateTimeKind.Local).AddTicks(425), 123, "Dealer2", null, "TestCallCenter", true, "023a2d11e01237fb6eab5ca926facd39ee44b1683e84295cccef79b7df905195", "55522244555", 2, 1, new DateTime(2020, 6, 26, 20, 20, 56, 269, DateTimeKind.Local).AddTicks(385) }
                 });
         }
 

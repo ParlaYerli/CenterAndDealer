@@ -38,7 +38,7 @@ namespace DataAccess.Concrete.Context
                    UpdatedDate = DateTime.Now,
                    CreatedDate = DateTime.Now,
                    UpdatedBy = 1,
-                   FullName = "Test",
+                   FullName = "TestDealer",
                    DealerName = "Dealer1",
                    Address = "Test mah. Test sokak.",
                    City = "İstanbul",
@@ -48,13 +48,18 @@ namespace DataAccess.Concrete.Context
                {
                    Id = 2,
                    CreatedBy = 1,
+                   DealerId = 123,
                    IsActive = true,
                    Password = "023a2d11e01237fb6eab5ca926facd39ee44b1683e84295cccef79b7df905195",//123123
                    RoleId = 2,
                    UpdatedDate = DateTime.Now,
                    CreatedDate = DateTime.Now,
                    UpdatedBy = 1,
-                   FullName = "Dealer2"
+                   FullName = "TestCallCenter",
+                   DealerName = "Dealer2",
+                   Address = "Test mah. Test sokak.",
+                   City = "İstanbul",
+                   Phone = "55522244555"
                });
             modelBuilder.Entity<LogType>().HasData(
                new LogType()
