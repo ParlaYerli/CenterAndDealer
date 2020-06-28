@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NLog.Extensions.Logging;
 
 namespace WebUI
 {
@@ -30,6 +31,7 @@ namespace WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddLogging(builder => builder.AddNLog());
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                .AddCookie(options =>
@@ -41,6 +43,7 @@ namespace WebUI
             services.AddScoped<IUserDal, UserDal>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ILoggingService, LoggingService>();
 
 
             services.AddDbContext<UserContext>();

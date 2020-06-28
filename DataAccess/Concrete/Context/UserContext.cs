@@ -1,5 +1,6 @@
 ﻿using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,7 @@ namespace DataAccess.Concrete.Context
         public DbSet<Log> Logs { get; set; }
         public DbSet<LogType> LogTypes { get; set; }
         public DbSet<Role> Roles { get; set; }
+      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 

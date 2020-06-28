@@ -15,10 +15,12 @@ namespace WebUI.Controllers
     public class CallCenterController : Controller
     {
         private IAuthService _authService;
+        public ILoggingService _loggingService { get; set; }
 
-        public CallCenterController(IAuthService _authService)
+        public CallCenterController(IAuthService _authService, ILoggingService _loggingService)
         {
             this._authService = _authService;
+            this._loggingService = _loggingService;
         }
         public IActionResult Index()
         {
@@ -103,10 +105,11 @@ namespace WebUI.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
+                _loggingService.Log("CallCenter Login işlemi",Entities.Abstract.LogType.Login, user.Id);
+
                 return true;
             }
             return false;
-
 
         }
     }
