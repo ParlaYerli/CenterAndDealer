@@ -8,6 +8,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using WebUI.Models;
 
 namespace WebUI.Controllers
@@ -15,12 +16,14 @@ namespace WebUI.Controllers
     public class CallCenterController : Controller
     {
         private IAuthService _authService;
-        public ILoggingService _loggingService { get; set; }
+        private ILoggingService _loggingService;
+        private readonly ILogger<CallCenterController> _logger;
 
-        public CallCenterController(IAuthService _authService, ILoggingService _loggingService)
+        public CallCenterController(IAuthService _authService, ILoggingService _loggingService, ILogger<CallCenterController> _logger)
         {
             this._authService = _authService;
             this._loggingService = _loggingService;
+            this._logger = _logger;
         }
         public IActionResult Index()
         {
@@ -45,6 +48,7 @@ namespace WebUI.Controllers
             };
 
             _authService.CreateCallCenter(user);
+            _logger.LogInformation("CallCenterController.CreateCallCenter method called!!!");
 
             return RedirectToAction("ListCallCenterUser", "CallCenter");
         }
