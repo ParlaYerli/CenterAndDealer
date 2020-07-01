@@ -183,3 +183,13 @@
 2020-07-01 23:12:20.0872 Info Adding target FileTarget(Name=alldata)
 2020-07-01 23:12:20.2009 Info Adding target FileTarget(Name=otherFile-web)
 2020-07-01 23:12:20.3912 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\parla.yerli\Source\Repos\CenterAndDealer\WebUI\bin\Debug\netcoreapp3.1\nlog.config
+2020-07-01 23:37:05.7870 Info Message Template Auto Format enabled
+2020-07-01 23:37:05.8583 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-01 23:37:06.0739 Info Adding target FileTarget(Name=alldata)
+2020-07-01 23:37:06.1943 Info Adding target FileTarget(Name=otherFile-web)
+2020-07-01 23:37:06.4580 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\parla.yerli\source\repos\CenterAndDealer\WebUI\bin\Debug\netcoreapp3.1\nlog.config
+2020-07-01 23:39:45.8465 Info Message Template Auto Format enabled
+2020-07-01 23:39:45.9009 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-01 23:39:46.0579 Info Adding target FileTarget(Name=alldata)
+2020-07-01 23:39:46.1005 Info Adding target FileTarget(Name=otherFile-web)
+2020-07-01 23:39:46.2318 Info Validating config: TargetNames=alldata, otherFile-web, ConfigItems=45, FilePath=C:\Users\parla.yerli\source\repos\CenterAndDealer\WebUI\bin\Debug\netcoreapp3.1\nlog.config
