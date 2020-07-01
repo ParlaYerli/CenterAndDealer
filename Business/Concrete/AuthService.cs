@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
+using DataAccess.Concrete.Context;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -80,6 +81,21 @@ namespace Business.Concrete
                     builder.Append(bytes[i].ToString("x2"));
                 }
                 return builder.ToString();
+            }
+        }
+
+        public PagedResult<User> GetUser(int? userId, int currentPage, int pageSize)
+        {
+            using (UserContext db = new UserContext())
+            {
+                if (userId == null || userId == 0)
+                {
+                    return db.Users.OrderByDescending(x=> x.FullName).GetPaged(currentPage, pageSize);
+                }
+                else
+                {
+                    return db.Users.Where(x => x.Id == userId).OrderByDescending(x => x.FullName).GetPaged(currentPage, pageSize);
+                }
             }
         }
     }

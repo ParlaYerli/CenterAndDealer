@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -19,15 +20,23 @@ namespace WebUI.Controllers
         private ILoggingService _loggingService;
         private readonly ILogger<CallCenterController> _logger;
 
-        public CallCenterController(IAuthService _authService, ILoggingService _loggingService, ILogger<CallCenterController> _logger )
+        public CallCenterController(IAuthService _authService, ILoggingService _loggingService, ILogger<CallCenterController> _logger)
         {
             this._authService = _authService;
             this._loggingService = _loggingService;
             this._logger = _logger;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page, int? userId)
         {
-            return View();
+            PagedResult<User> model = new PagedResult<User>();
+          
+            model.CurrentPage = page ?? 1;
+            model.PageSize = 10;
+
+
+            model = _authService.GetUser(userId, model.CurrentPage, model.PageSize);
+
+            return View(model);
         }
 
         public IActionResult CreateCallCenterUser(CallCenterUserViewModel model)
@@ -115,7 +124,7 @@ namespace WebUI.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
-                _loggingService.Log("CallCenter Login işlemi",Entities.Abstract.LogType.Login, user.Id);
+                _loggingService.Log("CallCenter Login işlemi", Entities.Abstract.LogType.Login, user.Id);
 
                 return true;
             }
