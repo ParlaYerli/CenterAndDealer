@@ -90,6 +90,8 @@ namespace WebUI.Controllers
         {
             return View();
         }
+
+        // CallCenter login info : id: 1 password: 123123
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
